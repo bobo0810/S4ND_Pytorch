@@ -127,7 +127,7 @@ class S4ND(nn.Module):
         in_planes = int(in_planes + block_conv_num[4] * growth_rate[4])
 
         ######Conv 1x1x1  不改变大小##### ok
-        self.end_conv = torch.nn.Conv3d(in_channels=in_planes, out_channels=end_out_planes, kernel_size=(1, 1, 1)),
+        self.end_conv = torch.nn.Conv3d(in_channels=in_planes, out_channels=end_out_planes, kernel_size=(1, 1, 1))
 
         # 最大池化层(根据论文中网络图，第一个池化操作后 特征图缩小明显，故第一个maxpool卷积核比其余maxpool大)
         self.maxpool_begin = torch.nn.MaxPool3d(kernel_size=(1, 4, 4))
