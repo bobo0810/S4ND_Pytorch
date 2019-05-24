@@ -19,6 +19,10 @@
 
 - TODO
 
+# 网络结构
+
+![](https://github.com/bobo0810/S4ND_Pytorch/imgs/network.png)
+
 # 训练
 
 - TODO
