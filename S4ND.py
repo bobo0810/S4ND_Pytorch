@@ -147,6 +147,6 @@ class S4ND(nn.Module):
 
 if __name__ == '__main__':
     model=S4ND()
-    input = torch.randn(2, 1, 8,512, 512)  # 2 batch size    1  输入通道     26，40,40为一个通道的样本
+    input = torch.randn(2, 1, 8,512, 512)  # 2 batch size    1  输入通道     8,512,512为样本
     output=model(input)
     print(output.size())
