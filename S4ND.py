@@ -67,7 +67,7 @@ class S4ND(nn.Module):
     growth_rate 增长率  block中每层输出的特征图channel
     block内 每个操作输入不断增加，输出为growth_rate不变
     '''
-    def __init__(self):
+    def __init__(self,growth_rate,block_conv_num):
         super(S4ND, self).__init__()
         # Translation layer 层通道数减少比例，默认减半
         reduction = 0.5
@@ -77,19 +77,13 @@ class S4ND(nn.Module):
         end_out_planes=1
         # 不使用dropout
         dropRate = 0.0
-        # 5 个Dense Block的Growth rate
-        growth_rate=[16,16,16,32,64]
-        # 5 个Dense Block内的卷积层数量
-        block_conv_num = [6,6,6,6,6]
+
         # 整体网络初始化的输入channel
         init_in_planes=1
         if bottleneck == True:
             block = BottleneckBlock
         else:
             block = BasicBlock
-
-
-
 
         ######第一个Dense Block#####
         self.block1 = DenseBlock(block_conv_num[0], init_in_planes, growth_rate[0], block, dropRate)
@@ -146,7 +140,13 @@ class S4ND(nn.Module):
 
 
 if __name__ == '__main__':
-    model=S4ND()
+
+    # 5 个Dense Block的Growth rate
+    growth_rate=[16,16,16,32,64]
+    # 5 个Dense Block内的卷积层数量
+    block_conv_num = [6,6,6,6,6]
+
+    model=S4ND(growth_rate,block_conv_num)
     input = torch.randn(2, 1, 8,512, 512)  # 2 batch size    1  输入通道     8,512,512为样本
     output=model(input)
     print(output.size())

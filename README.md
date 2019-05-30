@@ -2,31 +2,23 @@
 
 # 说明
 - 非官方实现
-- 基本实现，正在整理
-- 3D数据输入+Dense Block结构，造成 显存占用严重，无法训练
-######  batch size=2时占用27G显存
+- 3D数据输入+Dense Block结构，造成 显存占用严重,可通过修改growth_rate、block_conv_num参数简化网络
 
 ----------
 
 # 环境
 
-
 | python版本 | pytorch版本 | 系统   |
 |------------|-------------|--------|
 | 3.5        | 0.4.1       | Ubuntu |
 
-# 数据集
-
-- TODO
+----------
 
 # 网络结构
 
 ![](https://github.com/bobo0810/S4ND_Pytorch/blob/master/imgs/network.png)
 
-# 训练
-
-- TODO
-
+----------
  # 参考文献
 
 ```
