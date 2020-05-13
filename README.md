@@ -1,5 +1,5 @@
 # S4ND: Single-Shot Single-Scale Lung Nodule Detection
-
+#### 该仓库收录于[PytorchNetHub](https://github.com/bobo0810/PytorchNetHub)
 # 说明
 - 非官方实现
 - 3D数据输入+Dense Block结构，造成 显存占用严重,可通过修改growth_rate、block_conv_num参数简化网络
